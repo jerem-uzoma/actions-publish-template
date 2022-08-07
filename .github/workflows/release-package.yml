@@ -11,7 +11,8 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-      - run: cd sample-packages/npm/
-      - run: npm publish
+      - name: npm publish
+        working-directory: ./sample-packages/npm
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
